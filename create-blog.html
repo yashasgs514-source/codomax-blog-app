@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blog - My Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .create-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .create-container input,
+        .create-container select,
+        .create-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .create-container textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .create-container button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Blog Application</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<div class="create-container">
+    <h2>Create New Blog</h2>
+
+    <form id="blogForm">
+        <label>Blog Title</label>
+        <input type="text" id="blogTitle"
+               placeholder="Enter blog title" required>
+
+        <label>Category</label>
+        <select id="blogCategory" required>
+            <option value="">Select Category</option>
+            <option>Technology</option>
+            <option>Education</option>
+            <option>Travel</option>
+            <option>Food</option>
+            <option>Lifestyle</option>
+        </select>
+
+        <label>Blog Content</label>
+        <textarea id="blogContent"
+                  placeholder="Write your blog here..."
+                  required></textarea>
+
+        <button type="submit">Publish Blog</button>
+    </form>
+</div>
+
+<footer>
+    <p>© 2026 My Blog Application</p>
+</footer>
+
+<script>
+document.getElementById("blogForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const blog = {
+        title: document.getElementById("blogTitle").value,
+        category: document.getElementById("blogCategory").value,
+        content: document.getElementById("blogContent").value
+    };
+
+    let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+    blogs.push(blog);
+
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+
+    alert("Blog published successfully!");
+    window.location.href = "dashboard.html";
+});
+</script>
+
+</body>
+</html>

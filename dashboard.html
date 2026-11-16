@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - My Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>My Blog Application</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<main class="dashboard">
+    <h2>Welcome to Your Dashboard!</h2>
+    <p>Manage your blog posts in one place.</p>
+
+    <div class="dashboard-cards">
+        <div class="dash-card">
+            <h3>Total Blogs</h3>
+            <p id="totalBlogs">0</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>Published Blogs</h3>
+            <p id="publishedBlogs">0</p>
+        </div>
+    </div>
+
+    <a href="create-blog.html" class="btn">
+        + Create New Blog
+    </a>
+
+    <section class="my-blogs">
+        <h2>My Blog Posts</h2>
+        <div id="blogList">
+            <p>No blogs published yet.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 My Blog Application</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
